@@ -5,4 +5,4 @@ const routes = require("./routes"); // Whatever is in module.exports of routes w
 const server = http.createServer(routes);
 
 const PORT = 3000;
-server.listen(3000);
+server.listen(PORT);
