@@ -1,20 +1,25 @@
 const http = require("http");
 
-// Method 1 : Using Separate request listener function
-// function rqListner(req, res) {
-	// console.log({req, res});
-// }
-// const server = http.createServer(rqListner);
+const server = http.createServer((req, res) => {
+  // Understanding the request
+  console.log({
+    reqUrl: req.url,
+    reqMethod: req.method,
+    reqHeader: req.headers,
+  });
 
-// Method 2 : Passing request Listener function as direct argument
-// const server = http.createServer(function(req,res){
-// 	console.log({req, res});
-// });
+  // Sending the response
 
-// Method 3: Using Arrow Function
-const server = http.createServer((req,res) => {
-	console.log({req, res});
-})
+  res.setHeader('content-type','text/html');
+  res.write('<html>');
+  res.write('<head><title>My first response</title></head>');
+  res.write('<body><h1>Hello from Node.js</h1></body>')
+  res.write('</html>');
+  console.log({res});
+  res.end();
+  console.log({res});
+//   process.exit(); // Playing with event Loop
+});
 
 const PORT = 3000;
 server.listen(3000);
