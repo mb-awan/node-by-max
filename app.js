@@ -2,14 +2,14 @@ const express = require("express");
 
 const app = express();
 
-app.use((req, res, next) => {
-  console.log("In the first middleware");
-  next();
+// app.use has many overloads out which we can use app.use([PATH-optional],callback) to manage different routes
+
+app.use("/all-products", (req, res, next) => {
+  res.send("<h1>This is 'ALL Products' page</h1>");
 });
 
-app.use((req, res, next) => {
-  console.log("In the second middleware");
-  res.send("<h1>Hello from Express JS</h1>");
+app.use("/", (req, res, next) => {
+  res.send("<h>Hello from express js</h1>");
 });
 
 const PORT = 3000;
