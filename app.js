@@ -2,11 +2,7 @@ const express = require("express");
 
 const app = express();
 
-// const bodyParser = require("body-parser");
-// app.use(bodyParser.urlencoded( { extended: true})); is deprecated and built in now in express
-// will parse each request body to js object before each request
-
-app.use(express.urlencoded({ extended: true })); // Latest
+app.use(express.urlencoded({ extended: true })); // To parse request body before each middleware
 
 app.use("/add-product", (req, res) => {
   res.send(`
