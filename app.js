@@ -16,6 +16,8 @@ app.use((req, res, next) => {
 
 app.use((req, res, next) => {
   console.log("In the second middleware");
+  // we can send response to the back in these middlewares i.e:
+  res.send("<h1>Hello from Express JS</h1>"); // send takes object of type any and creates headers etc itself according to the object that we had to do in node js outselves.
 });
 
 const server = http.createServer(app);
