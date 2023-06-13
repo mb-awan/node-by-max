@@ -10,5 +10,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(adminRoutes);
 app.use(shopRoutes);
 
+app.use((req, res) => {
+  res.status(404).send("<h1>404 : Page Not Found</h1>");
+  // we can chain our res.functions with each other as many times we need or want
+}); // should be at the end of all app.use
+
 const PORT = 3000;
 app.listen(PORT);
