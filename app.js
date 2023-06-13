@@ -7,8 +7,8 @@ const shopRoutes = require("./routes/shop");
 
 app.use(express.urlencoded({ extended: true }));
 
-app.use(adminRoutes);
-app.use(shopRoutes);
+app.use("/admin", adminRoutes);
+app.use("/shop", shopRoutes);
 
 app.use((req, res) => {
   res.status(404).send("<h1>404 : Page Not Found</h1>");
