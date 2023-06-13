@@ -7,6 +7,7 @@ const rootDir = require("./utils/paths");
 const app = express();
 
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(rootDir, "public"))); // To make folder static i.e available publically
 
 app.use("/admin", adminRoutes);
 app.use("/shop", shopRoutes);
