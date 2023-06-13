@@ -1,10 +1,11 @@
 const path = require("path");
 const express = require("express");
+const rootDir = require("../utils/paths");
 
 const router = express.Router();
 
 router.get("/add-products", (req, res) => {
-  res.sendFile(path.join(__dirname, "..", "views", "products.html"));
+  res.sendFile(path.join(rootDir, "views", "products.html"));
 });
 
 router.post("/products", (req, res) => {
@@ -13,7 +14,7 @@ router.post("/products", (req, res) => {
 });
 
 router.get("/products", (req, res, next) => {
-  res.sendFile(path.join(__dirname, "..", "views", "shop.html"));
+  res.sendFile(path.join(rootDir, "views", "shop.html"));
 });
 
 module.exports = router;
